@@ -41,9 +41,8 @@ def sortedminimalCover(time array, gaps):
     
     while gaps(>0)
         for (i = j ; i < length of time array; i = i + 2)
-            if (time array[i] < earliest time)
-                put time array [i] in earliest time array
-                earliest time = time array[i]
+            earliest time 
+            
         
         
     
