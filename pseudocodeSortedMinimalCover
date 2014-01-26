@@ -1,0 +1,52 @@
+Pseudocode for the code that implements the sorted minimal cover correctly.
+Algorithm:
+    sort array based on the start input in ascending order (insertion sort)
+    determine how many gaps within the total interval (N/2)
+    while gaps >= 0  
+        determine earliest and latest time
+        put pair of earliest and latest time into sorted minimal cover array
+        set the earliest time to the next earlier time and the latest time to the next latest time
+        gaps--
+    print sorted minimal cover array
+    
+    time complexity = N^2 + N/2 + (N^2 / 2) *  
+
+pseudocode implementation
+// sorts time array in ascending order
+def sort_time(time array):
+    earliest time = time array [0]
+    // compares the start time, assuming that each time is in (earlier time, latter time) format
+    for (i = 0; i < length of time array; i= i + 2)
+        if (time array [i + 2] < time array [i])
+            time array [i + 2] = time array [i]
+    return time array
+    
+def determine_gaps(time array):
+    latest time = time array[1]
+    gaps = 0
+    //check for gaps
+    for ( i = 2; i < length of time array; i = i + 2)
+        if (latest time < time array[i])
+            gaps++
+    return gaps
+    
+def sortedminimalCover(time array, gaps):
+    initialise earliest time array
+    initialise latest time array
+    
+    earliest time = time array[0]
+    latest time = time array[1]
+    
+    j = 0
+    
+    while gaps(>0)
+        for (i = j ; i < length of time array; i = i + 2)
+            if (time array[i] < earliest time)
+                put time array [i] in earliest time array
+                earliest time = time array[i]
+        
+        
+    
+    
+            
+            
