@@ -1,7 +1,7 @@
 Read Me
 ====================
 This is program evaluate the sorted minimal cover given sets of pair of dates. Everything seems to be working in order 
-although its implementation is not exactly as instructed. Nonetheless, the output should be correct, no logical error
+although its implementation is not exactly as instructed. Also note that it will only works if the dates overlap, otherwise the output will be false. Nonetheless, the output should be correct, no logical error
 is present as far as I can tell. To test the program, simply enter the appropriate inputs in the TimeArray under the start() method. 
 
 
