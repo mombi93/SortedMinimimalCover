@@ -1,0 +1,89 @@
+Pseudocode for the code that implements the sorted minimal cover correctly.
+Algorithm:
+    sort array based on the start input in ascending order (insertion sort)
+    determine how many gaps within the total interval (N/2)
+    while gaps >= 0  
+        determine earliest and latest time
+        put pair of earliest and latest time into sorted minimal cover array
+        set the earliest time to the next earlier time and the latest time to the next latest time
+        gaps--
+    print sorted minimal cover array
+    N = number of input (must be a multiple of 2)
+    time complexity = insertion sorts in sort_time roughly N^2 due to nested loop (while inside for loop) 
+                        + determine gaps (roughly N as there is only one loop) + sortedminimalcover ((N * number depending
+                        on the gaps in time array) + few additional operations) + 5 (from start() function and start() declaration)
+                    = in approximation the time complexity is roughly N^2.
+                    
+    
+
+pseudocode implementation
+// sorts time array in ascending order
+def sort_time(time array):
+    earlier time = time array [0]
+    later time = time array [1]
+    // compares the start time, assuming that each time input in array is in (earlier time, latter time) format
+    for (i = 0; i < length of time array; i= i + 2)
+        x = time array[0]
+        j = i
+        while (0 < j and x < time array[j - 2])
+            time array [j] = time array [j - 2]
+            j = j - 2
+        time array [j] = x
+        
+    for (i = 1; i < length of time arrat ; i = i + 2)
+        x = time array[1]
+        j = i
+        while (0 < j and x < time array[j - 2])
+            time array [j] = time array [j - 2]
+            j = j - 2
+        time array [j] = x
+    return time array
+    
+def determine_gaps(time array):
+    latest time = time array[1]
+    gaps = 0
+    //check for gaps
+    for ( i = 2; i < length of time array; i = i + 2)
+        if (latest time < time array[i])
+            latest time = time array[i+1]
+            gaps++
+    return gaps
+    
+def sortedminimalCover(time array, gaps):
+    //time array already sorted
+    create sorted minimal cover array
+    earliest time = time array[0]
+    latest time = time array[1]
+    
+    k = 0
+    while (gaps>=0):
+        for (i = 1 ; i < length of time array; i = i + 2):
+            if (latest time < time array[i]):
+                latest time  = time array[i]
+                k = i + 1
+        
+        place earliest time in sorted minimal cover array
+        place latest time in sorted minimal cover array
+        
+        if (gaps > 0)
+            earliest time = time array[k]
+            latest time = time array[k + 1]
+        gaps--
+    
+    return sorted minimal cover array
+    
+def start(time array):
+    sorted time array = sort_time(time array)
+    gaps = determine_gaps(time array)
+    sortedMinCover = sortedminimalCover(sorted time array, gaps)
+    
+    return sortedMinCover
+    
+start(time array)
+            
+        
+        
+    
+    
+            
+            
